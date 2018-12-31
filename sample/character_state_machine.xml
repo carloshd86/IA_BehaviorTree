@@ -1,0 +1,45 @@
+<state_machine default_state_index="0">
+	<states>
+		<state id="1" name="idle">
+			<enter_action id="1" name="changeImage" image_index="1"></enter_action>
+			<exit_action></exit_action>
+			<state_action></state_action>
+			<transitions>
+				<transition>
+					<condition id="1" name="canSeeEnemy" distance="200"></condition>
+					<target_state id="2" name="pursue"></target_state>
+					<trigger_action></trigger_action>
+				</transition>
+				<transition>
+					<condition id="2" name="canAttackEnemy" distance="50"></condition>
+					<target_state id="3" name="attack"></target_state>
+					<trigger_action></trigger_action>
+				</transition>
+			</transitions>
+		</state>
+		<state id="2" name="pursue">
+			<enter_action id="1" name="changeImage" image_index="2"></enter_action>
+			<exit_action></exit_action>
+			<state_action id="2" name="pursue"></state_action>
+			<transitions>
+				<transition>
+					<condition id="2" name="canAttackEnemy" distance="50"></condition>
+					<target_state id="3" name="attack"></target_state>
+					<trigger_action></trigger_action>
+				</transition>
+			</transitions>
+		</state>
+		<state id="3" name="attack">
+			<enter_action id="1" name="changeImage" image_index="3"></enter_action>
+			<exit_action></exit_action>
+			<state_action id="3" name="attack" damage_points="1"></state_action>
+			<transitions>
+				<transition>
+					<condition id="3" name="cannotAttackEnemy" distance="50"></condition>
+					<target_state id="1" name="idle"></target_state>
+					<trigger_action></trigger_action>
+				</transition>
+			</transitions>
+		</state>
+	</states>
+</state_machine>

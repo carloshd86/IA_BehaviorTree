@@ -1,0 +1,43 @@
+<state_machine default_state_index="0">
+	<states>
+		<state id="1" name="idle">
+			<enter_action id="1" name="changeImage" image_index="1"></enter_action>
+			<exit_action></exit_action>
+			<state_action></state_action>
+			<transitions>
+				<transition>
+					<condition id="4" name="isDead"></condition>
+					<target_state id="5" name="dead"></target_state>
+					<trigger_action></trigger_action>
+				</transition>
+				<transition>
+					<condition id="5" name="isHit"></condition>
+					<target_state id="4" name="runaway"></target_state>
+					<trigger_action id="4" name="setTargetPoint"></trigger_action>
+				</transition>
+			</transitions>
+		</state>
+		<state id="4" name="runaway">
+			<enter_action id="1" name="changeImage" image_index="4"></enter_action>
+			<exit_action id="5" name="restoreHit"></exit_action>
+			<state_action></state_action>
+			<transitions>
+				<transition>
+					<condition id="4" name="isDead"></condition>
+					<target_state id="5" name="dead"></target_state>
+					<trigger_action  id="5" name="setDead"></trigger_action>
+				</transition>
+				<transition>
+					<condition id="6" name="reachedTargetPoint" distance="50"></condition>
+					<target_state id="1" name="idle"></target_state>
+					<trigger_action></trigger_action>
+				</transition>
+			</transitions>
+		</state>
+		<state id="5" name="dead">
+			<enter_action id="1" name="changeImage" image_index="5"></enter_action>
+			<exit_action></exit_action>
+			<state_action></state_action>
+		</state>
+	</states>
+</state_machine>

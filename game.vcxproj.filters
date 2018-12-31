@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="character.cpp" />
+    <ClCompile Include="gameConfig.cpp" />
+    <ClCompile Include="host\FolderWatcher-win.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="host\GlutHost.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="host\GlutHostMain.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="host\ParticlePresets.cpp">
+      <Filter>host</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="params.cpp" />
+    <ClCompile Include="steering\alignSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="steering\alignToMovementSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="steering\arriveSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="steering\fleeSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="steering\obstacleAvoidanceSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="steering\pathFollowingSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="steering\pursueSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="steering\seekSteering.cpp">
+      <Filter>steering</Filter>
+    </ClCompile>
+    <ClCompile Include="obstacles.cpp" />
+    <ClCompile Include="pathPoints.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="behaviorTrees\behavior.cpp">
+      <Filter>behaviorTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\selector.cpp">
+      <Filter>behaviorTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\sequence.cpp">
+      <Filter>behaviorTrees</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="character.h" />
+    <ClInclude Include="gameConfig.h" />
+    <ClInclude Include="host\FolderWatcher-win.h">
+      <Filter>host</Filter>
+    </ClInclude>
+    <ClInclude Include="host\GlutHost.h">
+      <Filter>host</Filter>
+    </ClInclude>
+    <ClInclude Include="host\ParticlePresets.h">
+      <Filter>host</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="params.h" />
+    <ClInclude Include="steering\alignSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\alignToMovementSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\arriveSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\fleeSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\iAlignSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\iSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\obstacleAvoidanceSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\pathFollowingSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\pursueSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="steering\seekSteering.h">
+      <Filter>steering</Filter>
+    </ClInclude>
+    <ClInclude Include="gameEntity.h" />
+    <ClInclude Include="obstacles.h" />
+    <ClInclude Include="pathPoints.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="behaviorTrees\behavior.h">
+      <Filter>behaviorTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\group.h">
+      <Filter>behaviorTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\sequence.h">
+      <Filter>behaviorTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\selector.h">
+      <Filter>behaviorTrees</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="host">
+      <UniqueIdentifier>{87717a51-4516-4c06-a1de-c6b89a5c16e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sample">
+      <UniqueIdentifier>{dafee91e-18b1-4dd7-a488-726565484f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="steering">
+      <UniqueIdentifier>{68027cf5-54b4-47b0-b62f-27c10912affc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="behaviorTrees">
+      <UniqueIdentifier>{7e7f815a-51c8-4144-8c81-78f9f2c84718}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sample\test.lua">
+      <Filter>sample</Filter>
+    </None>
+  </ItemGroup>
+</Project>
