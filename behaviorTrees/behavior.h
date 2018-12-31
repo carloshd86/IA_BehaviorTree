@@ -1,6 +1,8 @@
 #ifndef __BEHAVIOR_H__
 #define __BEHAVIOR_H__
 
+class GameEntity;
+
 class Behavior {
 
 public:
@@ -17,12 +19,14 @@ protected:
 	void   onExit();
 
 public:
-	Behavior();
+	Behavior(GameEntity* entity);
 
-	Status tick();
+	GameEntity* getEntity() const;
+	Status      tick();
 
 private:
-	Status mStatus;
+	Status      mStatus;
+	GameEntity* mEntity;
 };
 
 #endif
