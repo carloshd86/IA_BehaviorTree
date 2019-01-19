@@ -42,9 +42,7 @@ void Character::OnStart()
 
 	mAlignSteering = new AlignToMovementSteering(*this);
 
-	/*mBehavior = new Behavior(this, "character_bt.xml");
-	mBehavior->load();
-	mBehavior->start();*/
+	mBehavior = Behavior::load(this, "character_bt.xml");
 }
 
 void Character::OnStop()

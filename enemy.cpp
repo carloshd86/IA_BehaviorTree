@@ -47,9 +47,7 @@ void Enemy::OnStart()
 
 	mAlignSteering = new AlignToMovementSteering(*this);
 
-	/*mBehavior = new Behavior(this, "enemy_bt.xml");
-	mBehavior->load();
-	mBehavior->start();*/
+	mBehavior = Behavior::load(this, "enemy_bt.xml");
 }
 
 void Enemy::OnStop()

@@ -44,13 +44,34 @@
     <ClCompile Include="obstacles.cpp" />
     <ClCompile Include="pathPoints.cpp" />
     <ClCompile Include="enemy.cpp" />
-    <ClCompile Include="behaviorTrees\behavior.cpp">
-      <Filter>behaviorTrees</Filter>
-    </ClCompile>
     <ClCompile Include="behaviorTrees\selector.cpp">
       <Filter>behaviorTrees</Filter>
     </ClCompile>
     <ClCompile Include="behaviorTrees\sequence.cpp">
+      <Filter>behaviorTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\group.cpp">
+      <Filter>behaviorTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\goTo.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\enemyClose.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\idle.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\attack.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\entityDead.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\pursue.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\behavior.cpp">
       <Filter>behaviorTrees</Filter>
     </ClCompile>
   </ItemGroup>
@@ -114,6 +135,27 @@
     <ClInclude Include="behaviorTrees\selector.h">
       <Filter>behaviorTrees</Filter>
     </ClInclude>
+    <ClInclude Include="behaviorTrees\goTo.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\enemyClose.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\idle.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\attack.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\entityDead.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\pursue.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="host">
@@ -127,6 +169,12 @@
     </Filter>
     <Filter Include="behaviorTrees">
       <UniqueIdentifier>{7e7f815a-51c8-4144-8c81-78f9f2c84718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="behaviorTrees\behaviors">
+      <UniqueIdentifier>{6554d11a-6cb5-4518-b0af-65adb95c59fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="application">
+      <UniqueIdentifier>{2ddd92da-5db7-47fe-8c29-57815612c985}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

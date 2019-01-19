@@ -1,6 +1,9 @@
 #include <stdafx.h>
 #include "selector.h"
 
+Selector::Selector(GameEntity* entity) :
+	Group(entity) {}
+
 Behavior::Status Selector::update() {
 	while(true) {
 		Status s = mChildren[mCurrentChild]->tick();

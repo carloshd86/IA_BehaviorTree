@@ -1,8 +1,7 @@
 #include <stdafx.h>
 #include "alignToMovementSteering.h"
 #include "alignSteering.h"
-
-#define RAD2DEG 57.2958f
+#include "globals.h"
 
 AlignToMovementSteering::AlignToMovementSteering(GameEntity& entity) :
 	mEntity(entity)

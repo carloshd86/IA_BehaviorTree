@@ -2,6 +2,7 @@
 #define __BEHAVIOR_H__
 
 class GameEntity;
+class TiXmlElement;
 
 class Behavior {
 
@@ -20,13 +21,18 @@ protected:
 
 public:
 	Behavior(GameEntity* entity);
+	virtual ~Behavior();
 
 	GameEntity* getEntity() const;
 	Status      tick();
 
-private:
+	static Behavior* load(GameEntity* entity, const char* mFilename);
+
+protected:
 	Status      mStatus;
 	GameEntity* mEntity;
+	
+	static Behavior* getBehaviorInstance(GameEntity* entity, TiXmlElement* behaviorElem);
 };
 
 #endif

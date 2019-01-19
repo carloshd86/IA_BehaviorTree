@@ -1,6 +1,9 @@
 #include <stdafx.h>
 #include "sequence.h"
 
+Sequence::Sequence(GameEntity* entity) :
+	Group(entity) {}
+
 Behavior::Status Sequence::update() {
 	while(true) {
 		Status s = mChildren[mCurrentChild]->tick();

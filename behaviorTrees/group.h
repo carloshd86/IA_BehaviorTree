@@ -7,16 +7,15 @@
 class Group : public Behavior {
 
 public:
-	Group(GameEntity* entity, const char* filename);
-	~Group();
+	Group(GameEntity* entity);
+	virtual ~Group();
 
-	void load();
+	void load(TiXmlElement* groupElem);
 
 protected:
 	typedef std::vector<Behavior*> Behaviors;
 
-	Behaviors   mChildren;
-	const char* mFilename;
+	std::vector<Behavior*> mChildren;
 };
 
 #endif
