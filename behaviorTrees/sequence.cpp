@@ -1,6 +1,13 @@
 #include <stdafx.h>
 #include "sequence.h"
 
+Sequence::Sequence(GameEntity* entity) :
+	Group(entity) {}
+
+void Sequence::onEnter() {
+	mCurrentChild = 0;
+}
+
 Behavior::Status Sequence::update() {
 	while(true) {
 		Status s = mChildren[mCurrentChild]->tick();
@@ -18,6 +25,8 @@ Behavior::Status Sequence::update() {
 	return eInvalid;
 }
 
-void Sequence::onEnter() {
-	mCurrentChild = 0;
+void Sequence::onExit() {
+	if (eRunning != mStatus) {
+		mCurrentChild = 0;
+	}
 }

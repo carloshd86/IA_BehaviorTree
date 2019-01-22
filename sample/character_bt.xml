@@ -1,0 +1,15 @@
+<root>
+	<selector>
+		<sequence>
+			<behavior id="2" name="enemyClose" min_distance="800"></behavior>
+			<selector>
+				<sequence>
+					<behavior id="2" name="enemyClose" min_distance="50"></behavior>
+					<behavior id="3" name="attack" damage_points="1"></behavior>
+				</sequence>
+				<behavior id="4" name="pursue"></behavior>
+			</selector>
+		</sequence>
+		<behavior id="1" name="idle"></behavior>
+	</selector>
+</root>

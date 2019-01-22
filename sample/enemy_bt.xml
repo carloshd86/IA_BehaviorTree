@@ -1,0 +1,11 @@
+<root>
+	<selector>
+		<behavior id="6" name="entityDead"></behavior>
+		<sequence>
+			<behavior id="7" name="isHit"></behavior>
+			<behavior id="5" name="goTo"></behavior>
+			<behavior id="8" name="restoreHit"></behavior>
+		</sequence>
+		<behavior id="1" name="idle"></behavior>
+	</selector>
+</root>

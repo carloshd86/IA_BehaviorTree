@@ -124,7 +124,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="behaviorTrees\attack.cpp" />
     <ClCompile Include="behaviorTrees\behavior.cpp" />
+    <ClCompile Include="behaviorTrees\enemyClose.cpp" />
+    <ClCompile Include="behaviorTrees\entityDead.cpp" />
+    <ClCompile Include="behaviorTrees\goTo.cpp" />
+    <ClCompile Include="behaviorTrees\group.cpp" />
+    <ClCompile Include="behaviorTrees\idle.cpp" />
+    <ClCompile Include="behaviorTrees\isHit.cpp" />
+    <ClCompile Include="behaviorTrees\pursue.cpp" />
+    <ClCompile Include="behaviorTrees\restoreHit.cpp" />
     <ClCompile Include="behaviorTrees\selector.cpp" />
     <ClCompile Include="behaviorTrees\sequence.cpp" />
     <ClCompile Include="character.cpp" />
@@ -150,14 +159,23 @@
     <ClCompile Include="steering\seekSteering.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="behaviorTrees\attack.h" />
     <ClInclude Include="behaviorTrees\behavior.h" />
+    <ClInclude Include="behaviorTrees\enemyClose.h" />
+    <ClInclude Include="behaviorTrees\entityDead.h" />
+    <ClInclude Include="behaviorTrees\goTo.h" />
     <ClInclude Include="behaviorTrees\group.h" />
+    <ClInclude Include="behaviorTrees\idle.h" />
+    <ClInclude Include="behaviorTrees\isHit.h" />
+    <ClInclude Include="behaviorTrees\pursue.h" />
+    <ClInclude Include="behaviorTrees\restoreHit.h" />
     <ClInclude Include="behaviorTrees\selector.h" />
     <ClInclude Include="behaviorTrees\sequence.h" />
     <ClInclude Include="character.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="gameConfig.h" />
     <ClInclude Include="gameEntity.h" />
+    <ClInclude Include="globals.h" />
     <ClInclude Include="host\FolderWatcher-win.h" />
     <ClInclude Include="host\GlutHost.h" />
     <ClInclude Include="host\ParticlePresets.h" />

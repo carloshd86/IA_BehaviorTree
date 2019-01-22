@@ -69,7 +69,7 @@ entity:setProp(prop, layer)
 entity:start()
 entity:setLoc(-200, -200)
 entity:setRot(0)
-entity:setLinearVel(20, 20)
+entity:setLinearVel(0, 0)
 entity:setAngularVel(30)
 entity:setEnemy(enemy)
 

@@ -1,6 +1,9 @@
 #ifndef __BEHAVIOR_H__
 #define __BEHAVIOR_H__
 
+class GameEntity;
+class TiXmlElement;
+
 class Behavior {
 
 public:
@@ -12,17 +15,24 @@ public:
 	};
 
 protected:
-	Status update();
-	void   onEnter();
-	void   onExit();
+	virtual Status update();
+	virtual void   onEnter();
+	virtual void   onExit();
 
 public:
-	Behavior();
+	Behavior(GameEntity* entity);
+	virtual ~Behavior();
 
-	Status tick();
+	GameEntity* getEntity() const;
+	Status      tick();
 
-private:
-	Status mStatus;
+	static Behavior* load(GameEntity* entity, const char* mFilename);
+
+protected:
+	Status      mStatus;
+	GameEntity* mEntity;
+	
+	static Behavior* getBehaviorInstance(GameEntity* entity, TiXmlElement* behaviorElem);
 };
 
 #endif

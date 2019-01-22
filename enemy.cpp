@@ -7,6 +7,7 @@
 #include <steering/alignToMovementSteering.h>
 #include <character.h>
 #include <behaviorTrees/behavior.h>
+#include "globals.h"
 
 const float Enemy::MIN_DISTANCE_TO_REACH_TARGET = 25.f;
 
@@ -47,9 +48,7 @@ void Enemy::OnStart()
 
 	mAlignSteering = new AlignToMovementSteering(*this);
 
-	/*mBehavior = new Behavior(this, "enemy_bt.xml");
-	mBehavior->load();
-	mBehavior->start();*/
+	mBehavior = Behavior::load(this, "enemy_bt.xml");
 }
 
 void Enemy::OnStop()
@@ -59,7 +58,7 @@ void Enemy::OnStop()
 
 void Enemy::OnUpdate(float step)
 {
-	//mBehavior->update();
+	if (mBehavior) mBehavior->tick();
 
 	USVec3D pos             = GetLoc();
 	float   rot             = GetRot();
@@ -96,26 +95,30 @@ void Enemy::DrawDebug()
 void Enemy::SetLifePoints(int lifePoints) {
 	if (lifePoints < 0) lifePoints = 0;
 	mLifePoints = lifePoints;
+	if (!mLifePoints) {
+		Kill();
+	}
 }
 
 void Enemy::Damage(int lifePoints) {
+	SetHit(true);
 	SetLifePoints(mLifePoints - lifePoints);
-	mHit = true;
 }
 
-bool Enemy::IsDead() {
+bool Enemy::IsDead() const {
 	return mLifePoints <= 0;
 }
 
-bool Enemy::GetHit() {
+bool Enemy::GetHit() const {
 	return mHit;
 }
 
 void Enemy::SetHit(bool hit) {
+	if (hit) SetImage(I_Hit);
 	mHit = hit;
 }
 
-USVec2D Enemy::GetTargetPoint() {
+USVec2D Enemy::GetTargetPoint() const {
 	return mTargetPoint;
 }
 
@@ -129,6 +132,24 @@ void Enemy::SetSteering(ISteering* steering) {
 	mSteering = steering;
 }
 
+bool Enemy::CheckArrivedTargetPoint() {
+	return (USVec2D(GetLoc()).DistSqrd(mTargetPoint) <= MIN_DISTANCE_TO_REACH_TARGET * MIN_DISTANCE_TO_REACH_TARGET);
+}
+
+bool Enemy::CannotMove() {
+	return GetLinearVelocity().LengthSquared() <= NEAR_ZERO_EPSILON;
+}
+
+void Enemy::RemoveSteering() {
+	SetSteering(nullptr);
+}
+
+void Enemy::Kill() {
+	SetImage(I_Dead);
+	RemoveSteering();
+	SetLinearVelocity(0.f, 0.f);
+	SetAngularVelocity(0.f);
+}
 
 // Lua configuration
 

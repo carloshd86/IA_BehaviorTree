@@ -14,7 +14,7 @@ bool ReadObstacles(const char* filename, Obstacles& obstacles)
     TiXmlHandle hDoc(&doc);
 
     TiXmlElement* pElem;
-    pElem = hDoc.FirstChildElement().Element();
+    pElem = hDoc.FirstChildElement().ToElement();
     if (!pElem)
     {
         fprintf(stderr, "Invalid format for %s", filename);
@@ -25,7 +25,7 @@ bool ReadObstacles(const char* filename, Obstacles& obstacles)
     TiXmlHandle hObstacles = hRoot.FirstChildElement("obstacles");
 
 	// Points
-	TiXmlElement* obstacleElem = hObstacles.FirstChildElement("obstacle").Element();
+	TiXmlElement* obstacleElem = hObstacles.FirstChildElement("obstacle").ToElement();
 	for (obstacleElem; obstacleElem; obstacleElem = obstacleElem->NextSiblingElement("obstacle"))
 	{
 		USVec3D obstacle;

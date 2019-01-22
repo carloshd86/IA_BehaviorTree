@@ -5,9 +5,13 @@
 
 class Sequence : public Group {
 
+public:
+	Sequence(GameEntity* entity);
+
 protected:
 	void   onEnter();
 	Status update();
+	void   onExit();
 
 	int mCurrentChild;
 };

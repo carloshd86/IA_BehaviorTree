@@ -5,9 +5,13 @@
 
 class Selector : public Group {
 
+public:
+	Selector(GameEntity* entity);
+
 protected:
 	void   onEnter();
 	Status update();
+	void   onExit();
 
 	int mCurrentChild;
 };
