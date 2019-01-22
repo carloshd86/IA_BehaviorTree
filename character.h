@@ -47,7 +47,19 @@ public:
 	void ClearSteeringWeights();
 	void AddSteeringWeight(SteeringWeight& steeringWeight);
 
+	bool IsDead() const;
+
+	USVec2D GetTargetPoint () const;
+	void    SetTargetPoint (float x, float y);
+	void    SetSteering    (ISteering* steering);
+	void    RemoveSteering ();
+
+	bool    CheckArrivedTargetPoint();
+	bool    CannotMove();
+	void    Kill();
+
 private:
+	static const float MIN_DISTANCE_TO_REACH_TARGET;
 
 	USVec2D mLinearVelocity;
 	float mAngularVelocity;
@@ -55,11 +67,13 @@ private:
 	Params      mParams;
 	PathPoints  mPathPoints;
 	Obstacles   mObstacles;
-	Enemy* mEnemy;
+	Enemy*      mEnemy;
 
 	std::vector<SteeringWeight> mSteeringWeights;
 	IAlignSteering*             mAlignSteering;
 	Behavior*                   mBehavior;
+
+	USVec2D mTargetPoint;
 
 	void AdjustAccelerationModule(USVec2D& acceleration);
 

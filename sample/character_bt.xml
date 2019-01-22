@@ -1,7 +1,7 @@
 <root>
 	<selector>
 		<sequence>
-			<behavior id="2" name="enemyClose" min_distance="200"></behavior>
+			<behavior id="2" name="enemyClose" min_distance="800"></behavior>
 			<selector>
 				<sequence>
 					<behavior id="2" name="enemyClose" min_distance="50"></behavior>
@@ -10,6 +10,6 @@
 				<behavior id="4" name="pursue"></behavior>
 			</selector>
 		</sequence>
-		<behavior id="1" name="idle" radius="150" speed="120"></behavior>
+		<behavior id="1" name="idle"></behavior>
 	</selector>
 </root>

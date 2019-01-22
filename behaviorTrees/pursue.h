@@ -7,9 +7,14 @@ class Pursue : public Behavior {
 
 protected:
 	Status update();
+	void   onEnter();
+	void   onExit();
 
 public:
 	Pursue(GameEntity* entity);
+
+private:
+	bool mInitialized;
 };
 
 #endif

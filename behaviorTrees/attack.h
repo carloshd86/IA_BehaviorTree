@@ -7,6 +7,8 @@ class Attack : public Behavior {
 
 protected:
 	Status update();
+	void   onEnter();
+	void   onExit();
 
 public:
 	Attack(GameEntity* entity, int damage = 0);

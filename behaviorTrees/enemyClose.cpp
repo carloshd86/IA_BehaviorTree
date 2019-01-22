@@ -11,13 +11,15 @@ EnemyClose::EnemyClose(GameEntity* entity, float minDistance) :
 EnemyClose::Status EnemyClose::update() {
 	Status result = eFail;
 
-	Character* character = static_cast<Character*>(mEntity);
-	if (character) {
-		Enemy* enemy = character->GetEnemy();
-		if (enemy) {
-			float dist = (enemy->GetLoc() - character->GetLoc()).Length();
-			if (enemy->IsDead() && !enemy->GetHit() && dist <= mMinDistance)
-				result = eSuccess;
+	if (mMinDistance > 0) {
+		Character* character = static_cast<Character*>(mEntity);
+		if (character) {
+			Enemy* enemy = character->GetEnemy();
+			if (enemy) {
+				float distSqr = (USVec2D(enemy->GetLoc()) - USVec2D(character->GetLoc())).LengthSquared();
+				if (!enemy->IsDead() && !enemy->GetHit() && distSqr <= mMinDistance * mMinDistance)
+					result = eSuccess;
+			}
 		}
 	}
 

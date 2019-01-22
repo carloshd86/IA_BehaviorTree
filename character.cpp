@@ -9,7 +9,9 @@
 #include <steering/alignToMovementSteering.h>
 #include <behaviorTrees/behavior.h>
 #include <enemy.h>
+#include "globals.h"
 
+const float Character::MIN_DISTANCE_TO_REACH_TARGET = 25.f;
 
 Character::Character() : 
 	mLinearVelocity  (0.0f, 0.0f), 
@@ -52,7 +54,7 @@ void Character::OnStop()
 
 void Character::OnUpdate(float step)
 {
-	//mBehavior->update();
+	if (mBehavior) mBehavior->tick();
 
 	USVec3D pos             = GetLoc();
 	float   rot             = GetRot();
@@ -135,6 +137,45 @@ void Character::SetEnemy(Enemy& enemy)
 Enemy* Character::GetEnemy() 
 {
 	return mEnemy;
+}
+
+bool Character::IsDead() const {
+	return false;
+}
+
+USVec2D Character::GetTargetPoint() const {
+	return mTargetPoint;
+}
+
+void Character::SetTargetPoint(float x, float y) {
+	mTargetPoint.mX = x;
+	mTargetPoint.mY = y;
+}
+
+void Character::SetSteering(ISteering* steering) {
+	ClearSteeringWeights();
+	if (steering) {
+		AddSteeringWeight(Character::SteeringWeight(steering, 1.f));
+	}
+}
+
+void Character::RemoveSteering() {
+	SetSteering(nullptr);
+}
+
+bool Character::CheckArrivedTargetPoint() {
+	return (USVec2D(GetLoc()).DistSqrd(mTargetPoint) <= MIN_DISTANCE_TO_REACH_TARGET * MIN_DISTANCE_TO_REACH_TARGET);
+}
+
+bool Character::CannotMove() {
+	return GetLinearVelocity().LengthSquared() <= NEAR_ZERO_EPSILON;
+}
+
+void Character::Kill() {
+	SetImage(I_Dead);
+	RemoveSteering();
+	SetLinearVelocity(0.f, 0.f);
+	SetAngularVelocity(0.f);
 }
 
 // Lua configuration

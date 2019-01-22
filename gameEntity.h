@@ -5,6 +5,7 @@
 #include <params.h>
 #include <pathPoints.h>
 #include <obstacles.h>
+#include "steering/iSteering.h"
 
 class GameEntity: public MOAIEntity2D
 {
@@ -24,6 +25,16 @@ public:
 	virtual const Params& GetParams() const = 0;
 	virtual const PathPoints& GetPathPoints() const = 0;
 	virtual const Obstacles& GetObstacles() const = 0;
+
+	virtual USVec2D GetTargetPoint () const = 0;
+	virtual void    SetTargetPoint (float x, float y) = 0;
+	virtual void    SetSteering    (ISteering* steering) = 0;
+	virtual void    RemoveSteering () = 0;
+	virtual bool    CheckArrivedTargetPoint() = 0;
+	virtual bool    CannotMove() = 0;
+
+	virtual bool IsDead() const = 0;
+	virtual void Kill() = 0;
 
 	// Lua configuration
 public:

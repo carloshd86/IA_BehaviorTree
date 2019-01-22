@@ -7,14 +7,11 @@ class Idle : public Behavior {
 
 protected:
 	Status update();
+	void   onEnter();
+	void   onExit();
 
 public:
-	Idle(GameEntity* entity, float radius = 0.f, bool reverse = false, float speed = 0.f);
-
-private:
-	float mRadius;
-	bool  mReverse;
-	float mSpeed;
+	Idle(GameEntity* entity);
 };
 
 #endif

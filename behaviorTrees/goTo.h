@@ -12,10 +12,18 @@ protected:
 	void   onExit();
 
 public:
+	GoTo(GameEntity* entity);
 	GoTo(GameEntity* entity, USVec3D destination);
 
 private:
+	static const float MIN_DISTANCE_NEXT_POINT;
+
 	USVec3D mDestination;
+	bool    mRandomDestination;
+	bool    mInitialized;
+
+	void GenerateRandomDestination();
+
 };
 
 #endif

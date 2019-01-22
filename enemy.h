@@ -2,7 +2,6 @@
 #define __ENEMY_H__
 
 #include <gameEntity.h>
-#include "steering/iSteering.h"
 #include "steering/iAlignSteering.h"
 #include "pathPoints.h"
 #include "obstacles.h"
@@ -36,12 +35,16 @@ public:
 
 	void    SetLifePoints  (int lifePoints);
 	void    Damage         (int lifePoints);
-	bool    IsDead         ();
-	bool    GetHit         ();
+	bool    IsDead         () const;
+	bool    GetHit         () const;
 	void    SetHit         (bool hit);
-	USVec2D GetTargetPoint ();
+	USVec2D GetTargetPoint () const;
 	void    SetTargetPoint (float x, float y);
 	void    SetSteering    (ISteering* steering);
+	void    RemoveSteering ();
+	bool    CheckArrivedTargetPoint();
+	bool    CannotMove();
+	void    Kill();
 
 private:
 

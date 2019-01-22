@@ -131,7 +131,9 @@
     <ClCompile Include="behaviorTrees\goTo.cpp" />
     <ClCompile Include="behaviorTrees\group.cpp" />
     <ClCompile Include="behaviorTrees\idle.cpp" />
+    <ClCompile Include="behaviorTrees\isHit.cpp" />
     <ClCompile Include="behaviorTrees\pursue.cpp" />
+    <ClCompile Include="behaviorTrees\restoreHit.cpp" />
     <ClCompile Include="behaviorTrees\selector.cpp" />
     <ClCompile Include="behaviorTrees\sequence.cpp" />
     <ClCompile Include="character.cpp" />
@@ -164,7 +166,9 @@
     <ClInclude Include="behaviorTrees\goTo.h" />
     <ClInclude Include="behaviorTrees\group.h" />
     <ClInclude Include="behaviorTrees\idle.h" />
+    <ClInclude Include="behaviorTrees\isHit.h" />
     <ClInclude Include="behaviorTrees\pursue.h" />
+    <ClInclude Include="behaviorTrees\restoreHit.h" />
     <ClInclude Include="behaviorTrees\selector.h" />
     <ClInclude Include="behaviorTrees\sequence.h" />
     <ClInclude Include="character.h" />

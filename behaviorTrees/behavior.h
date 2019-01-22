@@ -15,9 +15,9 @@ public:
 	};
 
 protected:
-	Status update();
-	void   onEnter();
-	void   onExit();
+	virtual Status update();
+	virtual void   onEnter();
+	virtual void   onExit();
 
 public:
 	Behavior(GameEntity* entity);

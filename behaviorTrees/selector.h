@@ -11,6 +11,7 @@ public:
 protected:
 	void   onEnter();
 	Status update();
+	void   onExit();
 
 	int mCurrentChild;
 };

@@ -10,11 +10,25 @@ enum eBehavior {
 	B_Attack     = 3,
 	B_Pursue     = 4,
 	B_GoTo       = 5,
-	B_EntityDead = 6
+	B_EntityDead = 6,
+	B_IsHit      = 7,
+	B_RestoreHit = 8
+};
+
+enum eImage {
+	I_Default = 0,
+	I_Idle    = 1,
+	I_Alarm   = 2,
+	I_Attack  = 3,
+	I_Hit     = 4,
+	I_Dead    = 5,
+	I_Windup  = 6
 };
 
 const int MAX_VIEWPORT_WIDTH_HALF  = 512;
 const int MAX_VIEWPORT_HEIGHT_HALF = 384;
+
+const float NEAR_ZERO_EPSILON = 0.01f;
 
 constexpr const char* ROOT_NODE_NAME     = "root";
 constexpr const char* BEHAVIOR_NODE_NAME = "behavior";

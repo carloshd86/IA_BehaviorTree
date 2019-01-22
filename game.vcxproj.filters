@@ -74,6 +74,12 @@
     <ClCompile Include="behaviorTrees\behavior.cpp">
       <Filter>behaviorTrees</Filter>
     </ClCompile>
+    <ClCompile Include="behaviorTrees\isHit.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="behaviorTrees\restoreHit.cpp">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
@@ -154,6 +160,12 @@
       <Filter>behaviorTrees\behaviors</Filter>
     </ClInclude>
     <ClInclude Include="behaviorTrees\pursue.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\isHit.h">
+      <Filter>behaviorTrees\behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="behaviorTrees\restoreHit.h">
       <Filter>behaviorTrees\behaviors</Filter>
     </ClInclude>
   </ItemGroup>

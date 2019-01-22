@@ -4,6 +4,10 @@
 Selector::Selector(GameEntity* entity) :
 	Group(entity) {}
 
+void Selector::onEnter() {
+	mCurrentChild = 0;
+}
+
 Behavior::Status Selector::update() {
 	while(true) {
 		Status s = mChildren[mCurrentChild]->tick();
@@ -21,6 +25,8 @@ Behavior::Status Selector::update() {
 	return eInvalid;
 }
 
-void Selector::onEnter() {
-	mCurrentChild = 0;
+void Selector::onExit() {
+	if (eRunning != mStatus) {
+		mCurrentChild = 0;
+	}
 }

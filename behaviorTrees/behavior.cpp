@@ -10,10 +10,13 @@
 #include "pursue.h"
 #include "goTo.h"
 #include "entityDead.h"
+#include "isHit.h"
+#include "restoreHit.h"
 #include "globals.h"
 
 Behavior::Behavior(GameEntity* entity) :
-	mEntity (entity) {}
+	mEntity (entity),
+	mStatus(eInvalid) {}
 
 Behavior::~Behavior() {
 }
@@ -67,19 +70,21 @@ Behavior* Behavior::load(GameEntity* entity, const char* filename) {
 				TiXmlHandle hBehaviorTree(pBehaviorTree);
 				TiXmlElement* behaviorElem = hBehaviorTree.FirstChild().ToElement();
 
-				std::string nodeName = behaviorElem->ValueStr();
-				if (!nodeName.compare(BEHAVIOR_NODE_NAME)) {
-					behavior = getBehaviorInstance(entity, behaviorElem);
-				}
-				else if (!nodeName.compare(SELECTOR_NODE_NAME)) {
-					Selector* selector = new Selector(entity);
-					selector->load(behaviorElem);
-					behavior = selector;
-				}
-				else if (!nodeName.compare(SEQUENCE_NODE_NAME)) {
-					Sequence* sequence = new Sequence(entity);
-					sequence->load(behaviorElem);
-					behavior = sequence;
+				if (behaviorElem) {
+					std::string nodeName = behaviorElem->ValueStr();
+					if (!nodeName.compare(BEHAVIOR_NODE_NAME)) {
+						behavior = getBehaviorInstance(entity, behaviorElem);
+					}
+					else if (!nodeName.compare(SELECTOR_NODE_NAME)) {
+						Selector* selector = new Selector(entity);
+						selector->load(behaviorElem);
+						behavior = selector;
+					}
+					else if (!nodeName.compare(SEQUENCE_NODE_NAME)) {
+						Sequence* sequence = new Sequence(entity);
+						sequence->load(behaviorElem);
+						behavior = sequence;
+					}
 				}
 			}
 		}
@@ -95,21 +100,7 @@ Behavior* Behavior::getBehaviorInstance(GameEntity* entity, TiXmlElement* behavi
 
 	switch (behaviorId) {
 		case B_Idle: {
-			int radius = 0;
-			behaviorElem->Attribute(RADIUS_ATTR, &radius);
-			if (!&radius) radius = 0;
-
-			int iReverse = 0;
-			behaviorElem->Attribute(REVERSE_ATTR, &iReverse);
-			bool reverse = false;
-			if (!&iReverse) reverse = false;
-			else reverse = iReverse;
-
-			float speed = 0.f;
-			behaviorElem->Attribute(SPEED_ATTR, &speed);
-			if (!&speed) speed = 0.f;
-
-			behavior = new Idle(entity, radius, reverse, speed);
+			behavior = new Idle(entity);
 			break;
 		}
 		case B_EnemyClose: {
@@ -133,14 +124,19 @@ Behavior* Behavior::getBehaviorInstance(GameEntity* entity, TiXmlElement* behavi
 			break;
 		}
 		case B_GoTo: {
-			USVec3D destination;
-			// TODO generate random destination
-			// USVec3D destination = GoTo::GenerateRandomDestination();
-			behavior = new GoTo(entity, destination);
+			behavior = new GoTo(entity);
 			break;
 		}
 		case B_EntityDead: {
 			behavior = new EntityDead(entity);
+			break;
+		}
+		case B_IsHit: {
+			behavior = new IsHit(entity);
+			break;
+		}
+		case B_RestoreHit: {
+			behavior = new RestoreHit(entity);
 			break;
 		}
 	}
